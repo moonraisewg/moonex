@@ -1,0 +1,23 @@
+[workspace]
+resolver = "2"
+members = ["programs/*"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["Moonraise Labs"]
+license = "BUSL-1.1"
+repository = "https://github.com/moonraisewg/moonex"
+
+[workspace.dependencies]
+solana-program = { version = "2.3", default-features = false }
+borsh = { version = "1.5", features = ["derive"] }
+bytemuck = { version = "1.18", features = ["derive"] }
+thiserror = "1.0"
+num-derive = "0.4"
+num-traits = "0.2"
+
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1

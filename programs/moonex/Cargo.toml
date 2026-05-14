@@ -1,0 +1,31 @@
+[package]
+name = "moonex"
+description = "Moonex CLOB perpetuals DEX on Solana"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "moonex"
+
+[features]
+no-entrypoint = []
+test-sbf = []
+custom-heap = []
+custom-panic = []
+
+[dependencies]
+solana-program.workspace = true
+borsh.workspace = true
+bytemuck.workspace = true
+thiserror.workspace = true
+num-derive.workspace = true
+num-traits.workspace = true
+
+[dev-dependencies]
+solana-program-test = "2.2"
+solana-sdk = "2.2"
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }

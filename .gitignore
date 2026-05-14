@@ -3,3 +3,18 @@ CLAUDE.md
 CLAUDE.local.md
 .claude/
 .code-review-graph/
+
+# Rust / Cargo
+/target
+**/target
+Cargo.lock.bak
+
+# Solana
+test-ledger/
+*.so
+
+# Editor
+.vscode/
+.idea/
+*.swp
+.DS_Store
