@@ -1,8 +1,15 @@
 use solana_program::{
-    account_info::AccountInfo, entrypoint::ProgramResult, msg, pubkey::Pubkey,
+    account_info::AccountInfo, entrypoint::ProgramResult, pubkey::Pubkey,
 };
 
-use crate::instruction::{InitMarketArgs, MoonexInstruction, PlaceOrderArgs};
+use crate::instruction::MoonexInstruction;
+
+mod cancel_order;
+mod consume_events;
+mod init_market;
+mod init_open_orders;
+mod place_order;
+mod settle_funds;
 
 pub struct Processor;
 
@@ -13,40 +20,21 @@ impl Processor {
         data: &[u8],
     ) -> ProgramResult {
         let ix = MoonexInstruction::try_from_bytes(data)?;
-
         match ix {
-            MoonexInstruction::InitMarket(args) => Self::init_market(program_id, accounts, args),
-            MoonexInstruction::PlaceOrder(args) => Self::place_order(program_id, accounts, args),
-            MoonexInstruction::CancelOrder { order_id } => {
-                Self::cancel_order(program_id, accounts, order_id)
+            MoonexInstruction::InitMarket(args) => {
+                init_market::handle(program_id, accounts, args)
             }
+            MoonexInstruction::InitOpenOrders => init_open_orders::handle(program_id, accounts),
+            MoonexInstruction::PlaceOrder(args) => {
+                place_order::handle(program_id, accounts, args)
+            }
+            MoonexInstruction::CancelOrder(args) => {
+                cancel_order::handle(program_id, accounts, args)
+            }
+            MoonexInstruction::ConsumeEvents(args) => {
+                consume_events::handle(program_id, accounts, args)
+            }
+            MoonexInstruction::SettleFunds => settle_funds::handle(program_id, accounts),
         }
-    }
-
-    fn init_market(
-        _program_id: &Pubkey,
-        _accounts: &[AccountInfo],
-        _args: InitMarketArgs,
-    ) -> ProgramResult {
-        msg!("Moonex: InitMarket");
-        Ok(())
-    }
-
-    fn place_order(
-        _program_id: &Pubkey,
-        _accounts: &[AccountInfo],
-        _args: PlaceOrderArgs,
-    ) -> ProgramResult {
-        msg!("Moonex: PlaceOrder");
-        Ok(())
-    }
-
-    fn cancel_order(
-        _program_id: &Pubkey,
-        _accounts: &[AccountInfo],
-        order_id: u128,
-    ) -> ProgramResult {
-        msg!("Moonex: CancelOrder {}", order_id);
-        Ok(())
     }
 }

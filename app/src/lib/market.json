@@ -1,0 +1,20 @@
+{
+  "programId": "GawUJQ4vdnxeRzbnkwJsMAb1hVSh9qpXpeyvn9nXxZ72",
+  "market": "7MarmTAmGDSbnTKC3nC8s2ALXHuURj3KsAqnbZW6RNiC",
+  "baseMint": "2Vi7RTLniFMnie6ovv1db6CQbaCUgHYqsobGzPuBq9Hj",
+  "quoteMint": "GjZ9Txv2qvmgnpETmZ4iNQwLfQZpZotjVRt9yw3LKmFS",
+  "bids": "4nbCJHZuX9AejZ9rDxG8YYcjz1s7zn22wz7zxw6ZcDEK",
+  "asks": "3dCgPsCPmJeoTUJDwXQ4DVEZbAhwxBA6rjwpXL5YHJDz",
+  "eventQueue": "Du3MPJPHG2VaZAba5aJNacmXZsDQWuqTZ2vBrB2BezJ4",
+  "baseVault": "8WNFn2EocZsLCAYSAu3Eqm2M1YS68Lh7tHzbGqVwrFvS",
+  "quoteVault": "4xykTZtYTXSYPNaru7ZXTLmx1sqnw28PCy9nJynKuznr",
+  "vaultSigner": "ANNMtxJL9wGr71SCzsuaGwxxTQrzzrwkCoEjGjkdw8Tw",
+  "vaultSignerBump": 255,
+  "baseDecimals": 9,
+  "quoteDecimals": 6,
+  "tickSize": "1",
+  "baseLotSize": "1000000",
+  "quoteLotSize": "1000",
+  "baseSymbol": "moonSOL",
+  "quoteSymbol": "moonUSDC"
+}

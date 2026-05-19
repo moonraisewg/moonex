@@ -13,8 +13,14 @@ Cargo.lock.bak
 test-ledger/
 *.so
 
+# Bot wallets contain unencrypted private keys — never commit.
+app/scripts/bot-wallets.json
+
 # Editor
 .vscode/
 .idea/
 *.swp
 .DS_Store
+
+# Docs (local-only)
+/docs
